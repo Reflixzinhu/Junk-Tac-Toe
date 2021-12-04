@@ -1,0 +1,161 @@
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #050a30;
+  font-family: "Sora", sans-serif;
+  cursor: default;
+  user-select: none;
+}
+
+section {
+  animation: grow 0.5s ease-in-out;
+}
+
+main {
+  margin-top: 4rem;
+}
+
+h1 {
+  text-align: center;
+  color: #7ec8e3;
+  font-weight: 800;
+  font-size: 2rem;
+}
+
+#container {
+  display: grid;
+  grid-template: repeat(3, 6.25rem) / repeat(3, 6.25rem);
+  justify-content: center;
+  transition: all 500ms ease-out, transform 200ms ease-out;
+}
+
+.square {
+  height: 100%;
+  width: 100%;
+  border: 0.23rem solid #7ec8e3;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.square:first-child,
+.square:nth-child(2),
+.square:nth-child(3) {
+  border-top: none;
+}
+
+.square:last-child,
+.square:nth-child(8),
+.square:nth-child(7) {
+  border-bottom: none;
+}
+
+.square:nth-child(3n + 1) {
+  border-left: none;
+}
+
+.square:nth-child(3n + 3) {
+  border-right: none;
+}
+
+.o,
+.x {
+  cursor: not-allowed;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.o:after,
+.x:after {
+  position: absolute;
+  font-size: 50px;
+  line-height: 6.25rem;
+  animation: teste 100ms ease-in-out 0s;
+}
+
+@keyframes teste {
+  from {
+    font-size: 0px;
+  }
+  to {
+    font-size: 50px;
+  }
+}
+
+.o:after {
+  content: "\1F633";
+}
+
+.x:after {
+  content: "\1F621";
+}
+
+#score {
+  display: flex;
+  justify-content: center;
+  gap: 5rem;
+  color: #7ec8e3;
+}
+
+#score p {
+  position: relative;
+}
+
+#textAndButton {
+  display: flex;
+  flex-direction: column;
+  background-color: #000c66;
+  color: #7ec8e3;
+  align-items: center;
+  justify-content: space-around;
+  position: absolute;
+  top: -8.55rem;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 18.75rem;
+  height: 18.75rem;
+  border-radius: 1rem;
+  transition: all 500ms ease-out, transform 200ms ease-out;
+}
+
+#textAndButton p {
+  margin: 0 0 0 0;
+  font-weight: 600;
+}
+
+#textAndButton p:last-of-type {
+  padding: 0 0 0 0;
+  padding: 0.7rem;
+  border-radius: 1rem;
+  background-color: #0000ff;
+  font-weight: 800;
+  cursor: pointer;
+  text-align: center;
+  transition: all 100ms ease 0s;
+}
+
+#textAndButton p:last-of-type:hover {
+  transform: scale(1.2);
+}
+
+.hide {
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0);
+}
+
+@keyframes grow {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
